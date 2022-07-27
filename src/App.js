@@ -7,8 +7,18 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+    console.log("State Contacts", contacts);
   
-  //TODO: Load all contacts on useEffect when component first renders
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts`)
+    .then((response) => response.json())
+    .then(data => {
+    console.log("Contacts API", data)
+    setContacts(data)
+    }) 
+  }, [])
+
+  // DONE: Load all contacts on useEffect when component first renders
 
   return (
     <>
@@ -16,15 +26,21 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
           {/* TODO: Make these links */}
-          <li>Contacts List</li>
+          <Link to="contactsPage">
+            <li>Contacts List</li>
+          </Link>
+          <Link to="addContactPage">
           <li>Add New Contact</li>
+          </Link>
         </ul>
       </nav>
       <main>
         <Routes>
+          <Route path="/" element={<ContactsList contacts={contacts} />} />
+          <Route path="/contactsPage" element={<ContactsList contacts={contacts} />} />
           {/* TODO: Add routes here  */}
         </Routes>
       </main>
     </>
-  )
+  );
 }
