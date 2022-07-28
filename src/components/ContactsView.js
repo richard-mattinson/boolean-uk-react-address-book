@@ -28,10 +28,24 @@ function ContactsView() {
 
   return (
     <div>
-      <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street}, {contact.city}</p>
+      <h2>
+        {contact.firstName} {contact.lastName}
+      </h2>
+      <p>
+        {contact.street}, {contact.city}
+      </p>
+      <hr />
+      <p>
+        <b>Works at:</b> {contact.studio}
+      </p>
+      <p>
+        <b>Best Known for:</b> {contact.bestKnown}
+      </p>
+      <p>
+        <b>Honker!:</b> {contact.honker}
+      </p>
     </div>
-  )
+  );
 }
 
 export default ContactsView

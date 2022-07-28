@@ -13,6 +13,9 @@ function ContactsAdd(props) {
     lastName: "",
     street: "",
     city: "",
+    studio: "",
+    bestKnown: "",
+    honker: ""
   });
   const navigate = useNavigate();
 
@@ -90,6 +93,36 @@ function ContactsAdd(props) {
         type="text"
         required
         value={newContact.city}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="studio">Studio:</label>
+      <input
+        id="studio"
+        name="studio"
+        type="text"
+        required
+        value={newContact.studio}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="bestKnown">Best Known for:</label>
+      <input
+        id="bestKnown"
+        name="bestKnown"
+        type="text"
+        required
+        value={newContact.bestKnown}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="Honker">Honker!:</label>
+      <input
+        id="Honker"
+        name="Honker"
+        type="text"
+        required
+        value={newContact.twitter}
         onChange={handleChange}
       />
 
