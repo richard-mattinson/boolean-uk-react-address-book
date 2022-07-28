@@ -13,6 +13,20 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Hideo",
+      "lastName": "Kojima",
+      "street": "2-5-1 Meiji Gakuin Street",
+      "city": "Tokyo",
+      "id": 3
+    },
+    {
+      "firstName": "Ed",
+      "lastName": "Boon",
+      "street": "11 Midway Krescent",
+      "city": "Chicago",
+      "id": 4
     }
   ]
 }

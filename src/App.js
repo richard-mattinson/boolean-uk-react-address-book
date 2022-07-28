@@ -6,39 +6,54 @@ import ContactsView from "./components/ContactsView"
 import "./styles/styles.css"
 
 export default function App() {
-  const [contacts, setContacts] = useState([])
-    console.log("State Contacts", contacts);
-  
+  const [contacts, setContacts] = useState([]);
+  console.log("State Contacts", contacts);
+
   useEffect(() => {
     fetch(`http://localhost:4000/contacts`)
-    .then((response) => response.json())
-    .then(data => {
-    console.log("Contacts API", data)
-    setContacts(data)
-    }) 
-  }, [])
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log("Contacts API", data);
+        setContacts(data);
+      });
+  }, []);
 
-  // DONE: Load all contacts on useEffect when component first renders
+  //DONE: Load all contacts on useEffect when component first renders
 
   return (
     <>
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
-          <Link to="contactsPage">
+          {/* DONE: Make these links */}
+          <Link to="/">
             <li>Contacts List</li>
           </Link>
-          <Link to="addContactPage">
-          <li>Add New Contact</li>
+          <Link to="/contacts/add">
+            <li>Add New Contact</li>
           </Link>
         </ul>
       </nav>
       <main>
+          {/* DONE: Add routes here  */}
         <Routes>
           <Route path="/" element={<ContactsList contacts={contacts} />} />
-          <Route path="/contactsPage" element={<ContactsList contacts={contacts} />} />
-          {/* TODO: Add routes here  */}
+          <Route
+            path="/contacts"
+            element={<ContactsList contacts={contacts} />
+            }
+          />
+          <Route
+            path="/contacts/add"
+            element={
+              <ContactsAdd contacts={contacts} setContacts={setContacts} />
+            }
+          />
+          <Route 
+            path="/contacts/:id"
+            element={<ContactsView />
+            } 
+          />
         </Routes>
       </main>
     </>
